@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+    <style>
+body {
+  background-image:url({% static 'images/place_1.jpg' %});
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1 { text align:center}
+    </style>
+<h1>LOGIN PAGE</h>
+</head>
+<body>
+<form action="login" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Enter your name"><br>
+    <input type="password" name="password" placeholder="Enter your password"><br>
+    <input type="submit">
+
+</form>
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+</body>
+</html>

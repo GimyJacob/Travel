@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registerpage</title>
+    <style>
+body {
+  background-image:url({% static 'images/place2.jpg' %});
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+</head>
+<body>
+<h1>Registration</h1>
+<form action='register' method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Enter your name"><br>
+    <input type="text" name="firstname" placeholder="Enter your first name"><br>
+    <input type="text" name="lastname" placeholder="Enter your  last name"><br>
+    <input type="email" name="email" placeholder="Enter your email"><br>
+    <input type="password" name="password" placeholder="Enter your password"><br>
+    <input type="password" name="cpassword" placeholder="Confirm your password">
+    <input type="submit">
+</form>
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+</body>
+</html>
